@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Page title that appears in browser tab - customize this -->
     <title>All around the Roundabout</title>
+    
+    <!-- STYLES: All the CSS that controls the appearance of your page -->
     <style>
         * {
             margin: 0;
@@ -17,9 +21,11 @@
             color: #333;
         }
 
-        header { 
-            <!-- Green -->
-            background: linear-gradient(135deg, #ABC8C7 0%, #B0A1BA 100%);
+        /* HEADER STYLING: Controls the appearance of the top banner */
+        header {
+            /* Gradient background - you can change colors by modifying the hex codes */
+            /* Current colors: purple gradient (#667eea to #764ba2) */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 4rem 2rem;
             text-align: center;
@@ -35,10 +41,11 @@
             opacity: 0.9;
         }
 
+        /* NAVIGATION BAR STYLING: The sticky menu at the top */
         nav {
-            background: #ABC8C7;
+            background: #2d3748; /* Dark gray background */
             padding: 1rem;
-            position: sticky;
+            position: sticky; /* Keeps nav visible when scrolling */
             top: 0;
             z-index: 100;
         }
@@ -87,29 +94,34 @@
             margin: 0 auto;
         }
 
+        /* TOPIC CARDS GRID: Creates the card layout */
         .topics {
+            /* Grid layout - automatically adjusts columns based on screen size */
+            /* Cards will be at least 300px wide and fill available space */
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 3rem;
         }
 
+        /* INDIVIDUAL CARD STYLING: Each topic card's appearance */
         .topic-card {
             background: white;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
             padding: 2rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* Adds hover effect - card lifts slightly when mouse is over it */
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .topic-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-4px); /* Lifts card up slightly */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Stronger shadow */
         }
 
         .topic-card h3 {
-            color: #667eea;
+            color: #667eea; /* Purple color for card headings */
             margin-bottom: 1rem;
             font-size: 1.5rem;
         }
@@ -143,67 +155,104 @@
     </style>
 </head>
 <body>
+    <!-- HEADER SECTION: Main title and tagline for your website -->
     <header>
-        <h1>All around the Roundabout</h1>
-        <p>Presented and Researched by Justin Arackel</p>
+        <!-- Main headline - Replace with your preferred title -->
+        <h1>Howdy Dogs</h1>
+        <!-- Subtitle/tagline - Change this to match your presentation's focus -->
+        <p>Roundabouts are a proven solution for safer, more efficient traffic flow. 
+        This site showcases my research on their benefits, design principles, and real-world data from my presentation to ACC.
+        While I did utilize Anthropics Claude Sonnet 4.5 in the production of this website. 
+        I want to emphasize that all the research and writing is my own and I will cite all of my sources where I can.
+        </p>
     </header>
 
+    <!-- NAVIGATION BAR: Links to different sections of your site -->
+    <!-- Add or remove navigation items based on the sections you want to include -->
     <nav>
         <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#benefits">Why?</a></li>
-            <li><a href="#safety">Overall</a></li>
-            <li><a href="#design">What is a Roundabout?</a></li>
-            <li><a href="#data">Downsides to the Roundabout</a></li>
+            <!-- Update these links to match your actual research topics -->
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#safety">Safety</a></li>
+            <li><a href="#design">Design</a></li>
+            <li><a href="#data">Data & Research</a></li>
+            <!-- Add more navigation items here if needed, following the same format -->
         </ul>
     </nav>
 
     <div class="container">
+        <!-- INTRODUCTION SECTION: Welcome message and overview -->
         <section class="intro">
-            <h2>Howdy Dogs</h2>
+            <!-- Section heading - customize to introduce your research -->
+            <h2>Welcome</h2>
+            <!-- Main introduction paragraph - replace with your own summary of the research -->
             <p>
                 Roundabouts are a proven solution for safer, more efficient traffic flow. 
-                This site showcases my research on their benefits, design principles, 
-                and real-world data from my presentation to ACC.
+                This site presents comprehensive research on their benefits, design principles, 
+                and real-world performance data.
             </p>
+            <!-- Call-to-action button - update text and link as needed -->
             <a href="#topics" class="cta-button">Explore the Research</a>
         </section>
 
+        <!-- TOPIC CARDS SECTION: Grid of main research areas -->
+        <!-- Add, remove, or modify cards to match your presentation topics -->
         <section class="topics" id="topics">
+            <!-- CARD 1: Traffic Efficiency -->
+            <!-- Each card follows the same structure: emoji/icon, heading, and description -->
             <div class="topic-card">
-                <h3>Traffic Efficiency</h3>
+                <!-- Heading with emoji - change emoji and title to match your topic -->
+                <h3> Traffic Efficiency</h3>
+                <!-- Description - replace with your own summary from your research -->
                 <p>Discover how roundabouts reduce delays and improve traffic flow compared to traditional intersections.</p>
             </div>
 
+            <!-- CARD 2: Safety Benefits -->
             <div class="topic-card">
-                <h3>Safety Benefits</h3>
+                <h3> Safety Benefits</h3>
                 <p>Learn about the dramatic reduction in severe crashes and improved safety for all road users.</p>
             </div>
 
+            <!-- CARD 3: Design Principles -->
             <div class="topic-card">
-                <h3>Design Principles</h3>
+                <h3> Design Principles</h3>
                 <p>Explore the engineering standards and geometric design elements that make roundabouts effective.</p>
             </div>
 
+            <!-- CARD 4: Global Adoption -->
             <div class="topic-card">
-                <h3>Global Adoption</h3>
+                <h3> Global Adoption</h3>
                 <p>See how roundabouts are used worldwide and their growing adoption in North America.</p>
             </div>
 
+            <!-- CARD 5: Economic Impact -->
             <div class="topic-card">
-                <h3>Economic Impact</h3>
+                <h3> Economic Impact</h3>
                 <p>Understand the cost savings from reduced accidents, lower maintenance, and fuel efficiency.</p>
             </div>
 
+            <!-- CARD 6: Research Data -->
             <div class="topic-card">
-                <h3>Research Data</h3>
+                <h3> Research Data</h3>
                 <p>Review the statistical evidence and case studies supporting roundabout implementation.</p>
             </div>
+            
+            <!-- TO ADD MORE CARDS: Copy the structure above and modify the content -->
+            <!-- TO REMOVE CARDS: Simply delete the entire <div class="topic-card">...</div> block -->
         </section>
     </div>
 
+    <!-- FOOTER: Bottom section with copyright and additional info -->
     <footer>
-        <p>&copy; 2026 Roundabouts Research Project ACC</p>
+        <!-- Update the year and project name as needed -->
+        <p>&copy; 2025 Roundabout Research Project</p>
+        <p> Researched and Crafted by Justin Arackel with the assistance of Claude Sonnet 4.5 </p>
+        <!-- You can add additional footer content here, such as:
+             - Contact information
+             - Social media links
+             - Additional credits or acknowledgments
+        -->
     </footer>
 </body>
 </html>
