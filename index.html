@@ -1,258 +1,834 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Page title that appears in browser tab - customize this -->
-    <title>All around the Roundabout</title>
-    
-    <!-- STYLES: All the CSS that controls the appearance of your page -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Personal Space</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f9f4ee;
+      --warm-white: #fdfaf6;
+      --ink: #2a2118;
+      --brown: #7a5c3f;
+      --rust: #c0622f;
+      --soft-rust: #e8d5c4;
+      --sage: #8a9e82;
+      --muted: #9e8e7e;
+      --border: #e2d5c8;
+    }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* HEADER STYLING: Controls the appearance of the top banner */
-        header {
-            /* Gradient background - you can change colors by modifying the hex codes */
-            /* Current colors: purple gradient (#667eea to #764ba2) */
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-        }
+    html { scroll-behavior: smooth; }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
 
-        header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(253, 250, 246, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
 
-        /* NAVIGATION BAR STYLING: The sticky menu at the top */
-        nav {
-            background: #2d3748; /* Dark gray background */
-            padding: 1rem;
-            position: sticky; /* Keeps nav visible when scrolling */
-            top: 0;
-            z-index: 100;
-        }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--muted);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
 
-        nav a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
+    .nav-links a:hover { color: var(--rust); }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 8rem 4rem 4rem;
+      gap: 4rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
 
-        .intro {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(192,98,47,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-        .intro h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #2d3748;
-        }
+    .hero-text { max-width: 540px; }
 
-        .intro p {
-            font-size: 1.1rem;
-            color: #4a5568;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
 
-        /* TOPIC CARDS GRID: Creates the card layout */
-        .topics {
-            /* Grid layout - automatically adjusts columns based on screen size */
-            /* Cards will be at least 300px wide and fill available space */
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
+    .hero-name {
+      font-family: 'Lora', serif;
+      font-size: clamp(3rem, 5vw, 5rem);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
 
-        /* INDIVIDUAL CARD STYLING: Each topic card's appearance */
-        .topic-card {
-            background: white;
-            border: 1px solid #e2e8f0;
-            border-radius: 8px;
-            padding: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            /* Adds hover effect - card lifts slightly when mouse is over it */
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
+    .hero-name em {
+      font-style: italic;
+      color: var(--rust);
+    }
 
-        .topic-card:hover {
-            transform: translateY(-4px); /* Lifts card up slightly */
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Stronger shadow */
-        }
+    .hero-bio {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--brown);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
 
-        .topic-card h3 {
-            color: #667eea; /* Purple color for card headings */
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-        .topic-card p {
-            color: #4a5568;
-        }
+    .btn-primary {
+      padding: 0.8rem 1.8rem;
+      background: var(--rust);
+      color: white;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 100px;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.02em;
+    }
 
-        footer {
-            background: #2d3748;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
+    .btn-primary:hover { background: #a8541f; transform: translateY(-1px); }
 
-        .cta-button {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 6px;
-            margin-top: 2rem;
-            transition: background 0.3s;
-        }
+    .btn-ghost {
+      padding: 0.8rem 1.8rem;
+      border: 1.5px solid var(--border);
+      color: var(--brown);
+      text-decoration: none;
+      font-size: 0.875rem;
+      border-radius: 100px;
+      transition: border-color 0.2s, color 0.2s;
+      letter-spacing: 0.02em;
+    }
 
-        .cta-button:hover {
-            background: #5568d3;
-        }
-    </style>
+    .btn-ghost:hover { border-color: var(--rust); color: var(--rust); }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portrait-frame {
+      width: 340px; height: 420px;
+      border-radius: 200px 200px 180px 180px;
+      background: linear-gradient(135deg, var(--soft-rust) 0%, #d4c4b0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Lora', serif;
+      font-size: 5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(122,92,63,0.2);
+    }
+
+    .portrait-frame::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(42,33,24,0.1));
+    }
+
+    /* ── SECTION COMMONS ── */
+    section {
+      padding: 6rem 4rem;
+    }
+
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 500;
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--ink);
+    }
+
+    .section-desc {
+      margin-top: 0.75rem;
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    /* ── GOALS ── */
+    #goals { background: var(--warm-white); }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .goal-card {
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      background: white;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(122,92,63,0.1);
+    }
+
+    .goal-category {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: var(--sage);
+    }
+
+    .goal-title {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .goal-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .progress-bar-wrap {
+      height: 5px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--rust), #e8884d);
+      transition: width 1s ease;
+    }
+
+    .progress-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .goal-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .status-active { background: #e8f4e0; color: #4a7a3a; }
+    .status-planning { background: #fef3e8; color: #a06020; }
+    .status-ongoing { background: #e8e8f8; color: #4a4a8a; }
+
+    /* ── ESSAYS ── */
+    #essays { background: var(--cream); }
+
+    .essays-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .essay-item {
+      display: grid;
+      grid-template-columns: 100px 1fr auto;
+      gap: 2rem;
+      align-items: start;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+
+    .essay-item:hover .essay-title { color: var(--rust); }
+    .essay-item:hover .essay-arrow { transform: translateX(4px); color: var(--rust); }
+
+    .essay-date {
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding-top: 0.2rem;
+      font-weight: 300;
+    }
+
+    .essay-body {}
+
+    .essay-tag-pill {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      border: 1px solid var(--sage);
+      padding: 0.15rem 0.55rem;
+      border-radius: 100px;
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    .essay-title {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+      transition: color 0.2s;
+      line-height: 1.3;
+    }
+
+    .essay-excerpt {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .essay-arrow {
+      font-size: 1.2rem;
+      color: var(--border);
+      padding-top: 0.3rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: var(--warm-white); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      background: white;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 50px rgba(122,92,63,0.12);
+    }
+
+    .project-thumb {
+      height: 160px;
+      background: linear-gradient(135deg, var(--soft-rust), #c8b89e);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+    }
+
+    .project-info { padding: 1.5rem; }
+
+    .project-title {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      color: var(--rust);
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
+    .project-link:hover { text-decoration: underline; }
+
+    /* ── ROUNDABOUTS ── */
+    #roundabouts {
+      background: linear-gradient(135deg, #2a2118 0%, #3d2e1e 100%);
+      color: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #roundabouts::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px; height: 700px;
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    #roundabouts::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 400px; height: 400px;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    #roundabouts .section-tag { color: #e8884d; }
+
+    #roundabouts .section-title { color: var(--cream); }
+
+    #roundabouts .section-desc { color: rgba(249,244,238,0.6); }
+
+    .roundabout-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .roundabout-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    .roundabout-circle {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 3px solid rgba(192,98,47,0.5);
+      position: relative;
+      animation: spinSlow 20s linear infinite;
+    }
+
+    .roundabout-circle::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px; height: 60px;
+      background: var(--rust);
+      border-radius: 50%;
+    }
+
+    .ra-dot {
+      position: absolute;
+      width: 14px; height: 14px;
+      background: #e8884d;
+      border-radius: 50%;
+    }
+
+    .ra-dot:nth-child(1) { top: -7px; left: 50%; transform: translateX(-50%); }
+    .ra-dot:nth-child(2) { bottom: -7px; left: 50%; transform: translateX(-50%); }
+    .ra-dot:nth-child(3) { left: -7px; top: 50%; transform: translateY(-50%); }
+    .ra-dot:nth-child(4) { right: -7px; top: 50%; transform: translateY(-50%); }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .roundabout-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .ra-fact {
+      padding: 1.25rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .ra-fact-num {
+      font-family: 'Lora', serif;
+      font-size: 1.8rem;
+      color: var(--rust);
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .ra-fact-label {
+      font-size: 0.85rem;
+      color: rgba(249,244,238,0.6);
+      line-height: 1.5;
+    }
+
+    .ra-cta {
+      margin-top: 0.5rem;
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border: 1.5px solid rgba(192,98,47,0.6);
+      color: var(--soft-rust);
+      text-decoration: none;
+      font-size: 0.875rem;
+      border-radius: 100px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .ra-cta:hover {
+      background: rgba(192,98,47,0.15);
+      border-color: var(--rust);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(249,244,238,0.5);
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: rgba(249,244,238,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--soft-rust); }
+
+    .footer-links { display: flex; gap: 2rem; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+      .hero-visual { display: none; }
+      .roundabout-content { grid-template-columns: 1fr; }
+      .roundabout-visual { display: none; }
+      .essay-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .essay-date { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
-    <!-- HEADER SECTION: Main title and tagline for your website -->
-    <header>
-        <!-- Main headline - Replace with your preferred title -->
-        <h1>Howdy Dogs</h1>
-        <!-- Subtitle/tagline - Change this to match your presentation's focus -->
-        <p>Roundabouts are a proven solution for safer, more efficient traffic flow. 
-        This site showcases my research on their benefits, design principles, and real-world data from my presentation to ACC.
-        While I did utilize Anthropics Claude Sonnet 4.5 in the production of this website. 
-        I want to emphasize that all the research and writing is my own and I will cite all of my sources where I can.
-        </p>
-    </header>
 
-    <!-- NAVIGATION BAR: Links to different sections of your site -->
-    <!-- Add or remove navigation items based on the sections you want to include -->
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <!-- Update these links to match your actual research topics -->
-            <li><a href="#benefits">Benefits</a></li>
-            <li><a href="#safety">Safety</a></li>
-            <li><a href="#design">Design</a></li>
-            <li><a href="#data">Data & Research</a></li>
-            <!-- Add more navigation items here if needed, following the same format -->
-        </ul>
-    </nav>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Your Name</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#essays">Essays</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#roundabouts">Roundabouts</a></li>
+  </ul>
+</nav>
 
-    <div class="container">
-        <!-- INTRODUCTION SECTION: Welcome message and overview -->
-        <section class="intro">
-            <!-- Section heading - customize to introduce your research -->
-            <h2>Welcome</h2>
-            <!-- Main introduction paragraph - replace with your own summary of the research -->
-            <p>
-                Roundabouts are a proven solution for safer, more efficient traffic flow. 
-                This site presents comprehensive research on their benefits, design principles, 
-                and real-world performance data.
-            </p>
-            <!-- Call-to-action button - update text and link as needed -->
-            <a href="#topics" class="cta-button">Explore the Research</a>
-        </section>
+<!-- HERO / ABOUT -->
+<section class="hero" id="about">
+  <div class="hero-text fade-up">
+    <p class="hero-eyebrow">Hello, I'm</p>
+    <h1 class="hero-name">Your <em>Name</em></h1>
+    <p class="hero-bio">
+      A curious mind drawn to ideas, systems, and the small details others overlook.
+      I write, research, and build — chasing the things that genuinely fascinate me.
+      This is my corner of the internet.
+    </p>
+    <div class="hero-actions">
+      <a href="#essays" class="btn-primary">Read my writing</a>
+      <a href="#projects" class="btn-ghost">See my work</a>
+    </div>
+  </div>
+  <div class="hero-visual fade-up" style="transition-delay:0.2s">
+    <div class="portrait-frame">🌿</div>
+  </div>
+</section>
 
-        <!-- TOPIC CARDS SECTION: Grid of main research areas -->
-        <!-- Add, remove, or modify cards to match your presentation topics -->
-        <section class="topics" id="topics">
-            <!-- CARD 1: Traffic Efficiency -->
-            <!-- Each card follows the same structure: emoji/icon, heading, and description -->
-            <div class="topic-card">
-                <!-- Heading with emoji - change emoji and title to match your topic -->
-                <h3> Traffic Efficiency</h3>
-                <!-- Description - replace with your own summary from your research -->
-                <p>Discover how roundabouts reduce delays and improve traffic flow compared to traditional intersections.</p>
-            </div>
+<!-- GOALS -->
+<section id="goals">
+  <div class="section-header fade-up">
+    <span class="section-tag">What I'm working toward</span>
+    <h2 class="section-title">Goals & Progress</h2>
+    <p class="section-desc">Ambitions I'm actively tracking — holding myself accountable, in public.</p>
+  </div>
+  <div class="goals-grid">
 
-            <!-- CARD 2: Safety Benefits -->
-            <div class="topic-card">
-                <h3> Safety Benefits</h3>
-                <p>Learn about the dramatic reduction in severe crashes and improved safety for all road users.</p>
-            </div>
-
-            <!-- CARD 3: Design Principles -->
-            <div class="topic-card">
-                <h3> Design Principles</h3>
-                <p>Explore the engineering standards and geometric design elements that make roundabouts effective.</p>
-            </div>
-
-            <!-- CARD 4: Global Adoption -->
-            <div class="topic-card">
-                <h3> Global Adoption</h3>
-                <p>See how roundabouts are used worldwide and their growing adoption in North America.</p>
-            </div>
-
-            <!-- CARD 5: Economic Impact -->
-            <div class="topic-card">
-                <h3> Economic Impact</h3>
-                <p>Understand the cost savings from reduced accidents, lower maintenance, and fuel efficiency.</p>
-            </div>
-
-            <!-- CARD 6: Research Data -->
-            <div class="topic-card">
-                <h3> Research Data</h3>
-                <p>Review the statistical evidence and case studies supporting roundabout implementation.</p>
-            </div>
-            
-            <!-- TO ADD MORE CARDS: Copy the structure above and modify the content -->
-            <!-- TO REMOVE CARDS: Simply delete the entire <div class="topic-card">...</div> block -->
-        </section>
+    <div class="goal-card fade-up">
+      <p class="goal-category">Learning</p>
+      <span class="goal-status status-active">Active</span>
+      <h3 class="goal-title">Master a new programming language</h3>
+      <p class="goal-desc">Going deep on a language to build something meaningful with it.</p>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 40%"></div>
+      </div>
+      <div class="progress-label"><span>In progress</span><span>40%</span></div>
     </div>
 
-    <!-- FOOTER: Bottom section with copyright and additional info -->
-    <footer>
-        <!-- Update the year and project name as needed -->
-        <p>&copy; 2025 Roundabout Research Project</p>
-        <p> Researched and Crafted by Justin Arackel with the assistance of Claude Sonnet 4.5 </p>
-        <!-- You can add additional footer content here, such as:
-             - Contact information
-             - Social media links
-             - Additional credits or acknowledgments
-        -->
-    </footer>
+    <div class="goal-card fade-up" style="transition-delay:0.1s">
+      <p class="goal-category">Writing</p>
+      <span class="goal-status status-ongoing">Ongoing</span>
+      <h3 class="goal-title">Publish 12 essays this year</h3>
+      <p class="goal-desc">One essay per month on topics that genuinely fascinate me.</p>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 25%"></div>
+      </div>
+      <div class="progress-label"><span>3 published</span><span>25%</span></div>
+    </div>
+
+    <div class="goal-card fade-up" style="transition-delay:0.2s">
+      <p class="goal-category">Research</p>
+      <span class="goal-status status-planning">Planning</span>
+      <h3 class="goal-title">Deep dive into urban infrastructure</h3>
+      <p class="goal-desc">Expanding my roundabouts research into broader transportation policy.</p>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" style="width: 10%"></div>
+      </div>
+      <div class="progress-label"><span>Just started</span><span>10%</span></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ESSAYS -->
+<section id="essays">
+  <div class="section-header fade-up">
+    <span class="section-tag">Things I've written</span>
+    <h2 class="section-title">Essays & Thoughts</h2>
+    <p class="section-desc">Ideas I couldn't stop thinking about until I put them into words.</p>
+  </div>
+
+  <div class="essays-list fade-up">
+
+    <div class="essay-item">
+      <span class="essay-date">Jan 2025</span>
+      <div class="essay-body">
+        <span class="essay-tag-pill">Urban Design</span>
+        <h3 class="essay-title">Why Roundabouts Are Actually Brilliant</h3>
+        <p class="essay-excerpt">An honest look at why we resist good ideas — and what roundabouts reveal about how humans interact with systems.</p>
+      </div>
+      <span class="essay-arrow">→</span>
+    </div>
+
+    <div class="essay-item">
+      <span class="essay-date">Feb 2025</span>
+      <div class="essay-body">
+        <span class="essay-tag-pill">Reflection</span>
+        <h3 class="essay-title">On Taking Your Own Ideas Seriously</h3>
+        <p class="essay-excerpt">Most people talk themselves out of their best ideas before they even start. I've been trying not to.</p>
+      </div>
+      <span class="essay-arrow">→</span>
+    </div>
+
+    <div class="essay-item">
+      <span class="essay-date">Mar 2025</span>
+      <div class="essay-body">
+        <span class="essay-tag-pill">Process</span>
+        <h3 class="essay-title">Building in Public Without an Audience</h3>
+        <p class="essay-excerpt">What happens when you share your work and almost nobody sees it. Turns out, that might be the point.</p>
+      </div>
+      <span class="essay-arrow">→</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header fade-up">
+    <span class="section-tag">Things I've built</span>
+    <h2 class="section-title">Project Portfolio</h2>
+    <p class="section-desc">Work I'm proud of — code, research, and anything in between.</p>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-card fade-up">
+      <div class="project-thumb">🔵</div>
+      <div class="project-info">
+        <h3 class="project-title">Project One</h3>
+        <p class="project-desc">A brief description of what this project does and why you built it. What problem did it solve?</p>
+        <a href="https://github.com/yourusername" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.1s">
+      <div class="project-thumb">🟠</div>
+      <div class="project-info">
+        <h3 class="project-title">Project Two</h3>
+        <p class="project-desc">Another project with its own story. What did you learn building this?</p>
+        <a href="https://github.com/yourusername" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="transition-delay:0.2s">
+      <div class="project-thumb">🟢</div>
+      <div class="project-info">
+        <h3 class="project-title">Project Three</h3>
+        <p class="project-desc">Ideas become things when you actually sit down and build them. Here's one of mine.</p>
+        <a href="https://github.com/yourusername" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ROUNDABOUTS -->
+<section id="roundabouts">
+  <div class="roundabout-content">
+    <div>
+      <div class="section-header fade-up">
+        <span class="section-tag">Featured Research</span>
+        <h2 class="section-title">The Roundabout Project</h2>
+        <p class="section-desc">
+          A deep dive into one of the most misunderstood pieces of infrastructure — 
+          why roundabouts work, why we resist them, and what they say about how we design for humans.
+        </p>
+      </div>
+      <div class="roundabout-facts fade-up">
+        <div class="ra-fact">
+          <div class="ra-fact-num">40%</div>
+          <div class="ra-fact-label">Reduction in injury crashes compared to traditional intersections</div>
+        </div>
+        <div class="ra-fact">
+          <div class="ra-fact-num">90%</div>
+          <div class="ra-fact-label">Reduction in fatal crashes — the number that made me a believer</div>
+        </div>
+      </div>
+      <div class="fade-up" style="margin-top:2rem">
+        <a href="roundabouts.html" class="ra-cta">Explore the full research →</a>
+      </div>
+    </div>
+    <div class="roundabout-visual fade-up">
+      <div class="roundabout-circle">
+        <div class="ra-dot"></div>
+        <div class="ra-dot"></div>
+        <div class="ra-dot"></div>
+        <div class="ra-dot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Your Name — made with care</span>
+  <div class="footer-links">
+    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="mailto:you@email.com">Email</a>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
 </body>
 </html>
