@@ -1,0 +1,46 @@
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      color: rgba(249,244,238,0.5);
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+    }
+
+    footer a {
+      color: rgba(249,244,238,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover { color: var(--soft-rust); }
+
+    .footer-links { display: flex; gap: 2rem; }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
+      .hero-visual { display: none; }
+      .roundabout-content { grid-template-columns: 1fr; }
+      .roundabout-visual { display: none; }
+      .essay-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .essay-date { display: none; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }

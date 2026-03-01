@@ -6,600 +6,19 @@
   <title>Jushin's Jungle</title>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css">
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--warm-white);
-      color: var(--ink);
-      overflow-x: hidden;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.2rem 4rem;
-      background: rgba(253, 250, 246, 0.9);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Lora', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--ink);
-      text-decoration: none;
-      letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 400;
-      color: var(--muted);
-      letter-spacing: 0.03em;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--rust); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 8rem 4rem 4rem;
-      gap: 4rem;
-      background: var(--cream);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -100px; right: -100px;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(192,98,47,0.08) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-text { max-width: 540px; }
-
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--rust);
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-
-    .hero-name {
-      font-family: 'Lora', serif;
-      font-size: clamp(3rem, 5vw, 5rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-name em {
-      font-style: italic;
-      color: var(--rust);
-    }
-
-    .hero-bio {
-      font-size: 1.05rem;
-      line-height: 1.75;
-      color: var(--brown);
-      max-width: 440px;
-      margin-bottom: 2.5rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      padding: 0.8rem 1.8rem;
-      background: var(--rust);
-      color: white;
-      text-decoration: none;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border-radius: 100px;
-      transition: background 0.2s, transform 0.15s;
-      letter-spacing: 0.02em;
-    }
-
-    .btn-primary:hover { background: #a8541f; transform: translateY(-1px); }
-
-    .btn-ghost {
-      padding: 0.8rem 1.8rem;
-      border: 1.5px solid var(--border);
-      color: var(--brown);
-      text-decoration: none;
-      font-size: 0.875rem;
-      border-radius: 100px;
-      transition: border-color 0.2s, color 0.2s;
-      letter-spacing: 0.02em;
-    }
-
-    .btn-ghost:hover { border-color: var(--rust); color: var(--rust); }
-
-    .hero-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .portrait-frame {
-      width: 340px; height: 420px;
-      border-radius: 200px 200px 180px 180px;
-      background: linear-gradient(135deg, var(--soft-rust) 0%, #d4c4b0 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Lora', serif;
-      font-size: 5rem;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 30px 80px rgba(122,92,63,0.2);
-    }
-
-    .portrait-frame::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to bottom, transparent 60%, rgba(42,33,24,0.1));
-    }
-
-    /* ── SECTION COMMONS ── */
-    section {
-      padding: 6rem 4rem;
-    }
-
-    .section-header {
-      margin-bottom: 3.5rem;
-    }
-
-    .section-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--rust);
-      font-weight: 500;
-      display: block;
-      margin-bottom: 0.6rem;
-    }
-
-    .section-title {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
-      letter-spacing: -0.025em;
-      line-height: 1.2;
-      color: var(--ink);
-    }
-
-    .section-desc {
-      margin-top: 0.75rem;
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 500px;
-      line-height: 1.7;
-    }
-
-    /* ── GOALS ── */
-    #goals { background: var(--warm-white); }
-
-    .goals-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .goal-card {
-      border: 1.5px solid var(--border);
-      border-radius: 16px;
-      padding: 1.75rem;
-      background: white;
-      transition: transform 0.2s, box-shadow 0.2s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .goal-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(122,92,63,0.1);
-    }
-
-    .goal-category {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      color: var(--sage);
-    }
-
-    .goal-title {
-      font-family: 'Lora', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-      margin-bottom: 0.5rem;
-      line-height: 1.35;
-    }
-
-    .goal-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 1.25rem;
-    }
-
-    .progress-bar-wrap {
-      height: 5px;
-      background: var(--border);
-      border-radius: 100px;
-      overflow: hidden;
-    }
-
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 100px;
-      background: linear-gradient(90deg, var(--rust), #e8884d);
-      transition: width 1s ease;
-    }
-
-    .progress-label {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 0.5rem;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .goal-status {
-      display: inline-block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.2rem 0.6rem;
-      border-radius: 100px;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-    }
-
-    .status-active { background: #e8f4e0; color: #4a7a3a; }
-    .status-planning { background: #fef3e8; color: #a06020; }
-    .status-ongoing { background: #e8e8f8; color: #4a4a8a; }
-
-    /* ── ESSAYS ── */
-    #essays { background: var(--cream); }
-
-    .essays-list {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .essay-item {
-      display: grid;
-      grid-template-columns: 100px 1fr auto;
-      gap: 2rem;
-      align-items: start;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.15s;
-      cursor: pointer;
-    }
-
-    .essay-item:hover .essay-title { color: var(--rust); }
-    .essay-item:hover .essay-arrow { transform: translateX(4px); color: var(--rust); }
-
-    .essay-date {
-      font-size: 0.8rem;
-      color: var(--muted);
-      padding-top: 0.2rem;
-      font-weight: 300;
-    }
-
-    .essay-body {}
-
-    .essay-tag-pill {
-      display: inline-block;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--sage);
-      border: 1px solid var(--sage);
-      padding: 0.15rem 0.55rem;
-      border-radius: 100px;
-      margin-bottom: 0.4rem;
-      font-weight: 500;
-    }
-
-    .essay-title {
-      font-family: 'Lora', serif;
-      font-size: 1.2rem;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-      transition: color 0.2s;
-      line-height: 1.3;
-    }
-
-    .essay-excerpt {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .essay-arrow {
-      font-size: 1.2rem;
-      color: var(--border);
-      padding-top: 0.3rem;
-      transition: transform 0.2s, color 0.2s;
-    }
-
-    /* ── PROJECTS ── */
-    #projects { background: var(--warm-white); }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .project-card {
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1.5px solid var(--border);
-      background: white;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    .project-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 50px rgba(122,92,63,0.12);
-    }
-
-    .project-thumb {
-      height: 160px;
-      background: linear-gradient(135deg, var(--soft-rust), #c8b89e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.5rem;
-    }
-
-    .project-info { padding: 1.5rem; }
-
-    .project-title {
-      font-family: 'Lora', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-      margin-bottom: 0.4rem;
-    }
-
-    .project-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.65;
-      margin-bottom: 1rem;
-    }
-
-    .project-link {
-      font-size: 0.8rem;
-      color: var(--rust);
-      text-decoration: none;
-      font-weight: 500;
-      letter-spacing: 0.03em;
-    }
-
-    .project-link:hover { text-decoration: underline; }
-
-    /* ── ROUNDABOUTS ── */
-    #roundabouts {
-      background: linear-gradient(135deg, #2a2118 0%, #3d2e1e 100%);
-      color: var(--cream);
-      position: relative;
-      overflow: hidden;
-    }
-
-    #roundabouts::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 700px; height: 700px;
-      border: 1px solid rgba(255,255,255,0.04);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    #roundabouts::after {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 400px; height: 400px;
-      border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-
-    #roundabouts .section-tag { color: #e8884d; }
-
-    #roundabouts .section-title { color: var(--cream); }
-
-    #roundabouts .section-desc { color: rgba(249,244,238,0.6); }
-
-    .roundabout-content {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center;
-    }
-
-    .roundabout-visual {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .roundabout-circle {
-      width: 280px; height: 280px;
-      border-radius: 50%;
-      border: 3px solid rgba(192,98,47,0.5);
-      position: relative;
-      animation: spinSlow 20s linear infinite;
-    }
-
-    .roundabout-circle::before {
-      content: '';
-      position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px; height: 60px;
-      background: var(--rust);
-      border-radius: 50%;
-    }
-
-    .ra-dot {
-      position: absolute;
-      width: 14px; height: 14px;
-      background: #e8884d;
-      border-radius: 50%;
-    }
-
-    .ra-dot:nth-child(1) { top: -7px; left: 50%; transform: translateX(-50%); }
-    .ra-dot:nth-child(2) { bottom: -7px; left: 50%; transform: translateX(-50%); }
-    .ra-dot:nth-child(3) { left: -7px; top: 50%; transform: translateY(-50%); }
-    .ra-dot:nth-child(4) { right: -7px; top: 50%; transform: translateY(-50%); }
-
-    @keyframes spinSlow {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-
-    .roundabout-facts {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .ra-fact {
-      padding: 1.25rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-    }
-
-    .ra-fact-num {
-      font-family: 'Lora', serif;
-      font-size: 1.8rem;
-      color: var(--rust);
-      line-height: 1;
-      margin-bottom: 0.25rem;
-    }
-
-    .ra-fact-label {
-      font-size: 0.85rem;
-      color: rgba(249,244,238,0.6);
-      line-height: 1.5;
-    }
-
-    .ra-cta {
-      margin-top: 0.5rem;
-      display: inline-block;
-      padding: 0.8rem 1.8rem;
-      border: 1.5px solid rgba(192,98,47,0.6);
-      color: var(--soft-rust);
-      text-decoration: none;
-      font-size: 0.875rem;
-      border-radius: 100px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .ra-cta:hover {
-      background: rgba(192,98,47,0.15);
-      border-color: var(--rust);
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--ink);
-      color: rgba(249,244,238,0.5);
-      padding: 3rem 4rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 0.8rem;
-    }
-
-    footer a {
-      color: rgba(249,244,238,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    footer a:hover { color: var(--soft-rust); }
-
-    .footer-links { display: flex; gap: 2rem; }
-
-    /* ── ANIMATIONS ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      section { padding: 4rem 1.5rem; }
-      .hero { grid-template-columns: 1fr; padding: 6rem 1.5rem 3rem; }
-      .hero-visual { display: none; }
-      .roundabout-content { grid-template-columns: 1fr; }
-      .roundabout-visual { display: none; }
-      .essay-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .essay-date { display: none; }
-      footer { flex-direction: column; gap: 1rem; text-align: center; }
-    }
-  </style>
+  <link rel="stylesheet" href="nav.css">
+  <link rel="stylesheet" href="hero.css">
+  <link rel="stylesheet" href="section.css">
+  <link rel="stylesheet" href="goal.css">
+  <link rel="stylesheet" href="essays.css">
+  <link rel="stylesheet" href="projects.css">
+  <link rel="stylesheet" href="roundabouts.css">
+  <link rel="stylesheet" href="footer.css">
 </head>
 <body>
 
+
+<!------------------------------------------------------------------------------------------------------------------------->
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Justin Arackel</a>
@@ -628,10 +47,12 @@
     </div>
   </div>
   <div class="hero-visual fade-up" style="transition-delay:0.2s">
-    <div class="portrait-frame">🌿</div>
+    <div class="portrait-frame">My Beautiful Face</div>
   </div>
 </section>
 
+
+<!------------------------------------------------------------------------------------------------------------------------->
 <!-- GOALS -->
 <section id="goals">
   <div class="section-header fade-up">
@@ -677,6 +98,8 @@
   </div>
 </section>
 
+
+<!------------------------------------------------------------------------------------------------------------------------->
 <!-- ESSAYS -->
 <section id="essays">
   <div class="section-header fade-up">
@@ -720,6 +143,8 @@
   </div>
 </section>
 
+
+<!------------------------------------------------------------------------------------------------------------------------->
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header fade-up">
@@ -760,6 +185,7 @@
   </div>
 </section>
 
+<!------------------------------------------------------------------------------------------------------------------------->
 <!-- ROUNDABOUTS -->
 <section id="roundabouts">
   <div class="roundabout-content">
@@ -797,11 +223,13 @@
   </div>
 </section>
 
+
+<!------------------------------------------------------------------------------------------------------------------------->
 <!-- FOOTER -->
 <footer>
   <span>© 2025 Justin Arackel — made with care</span>
   <div class="footer-links">
-    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+    <a href="https://github.com/Justin-Cactus" target="_blank">GitHub</a>
     <a href="mailto:you@email.com">Email</a>
   </div>
 </footer>

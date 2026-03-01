@@ -1,0 +1,84 @@
+    /* ── GOALS ── */
+    #goals { background: var(--warm-white); }
+
+    .goals-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .goal-card {
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      background: white;
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goal-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(122,92,63,0.1);
+    }
+
+    .goal-category {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+      color: var(--sage);
+    }
+
+    .goal-title {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      line-height: 1.35;
+    }
+
+    .goal-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .progress-bar-wrap {
+      height: 5px;
+      background: var(--border);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      background: linear-gradient(90deg, var(--rust), #e8884d);
+      transition: width 1s ease;
+    }
+
+    .progress-label {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .goal-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-weight: 500;
+      margin-bottom: 0.75rem;
+    }
+
+    .status-active { background: #e8f4e0; color: #4a7a3a; }
+    .status-planning { background: #fef3e8; color: #a06020; }
+    .status-ongoing { background: #e8e8f8; color: #4a4a8a; }
