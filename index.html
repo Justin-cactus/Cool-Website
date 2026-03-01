@@ -55,50 +55,7 @@
 
 <!------------------------------------------------------------------------------------------------------------------------->
 <!-- GOALS -->
-<section id="goals">
-  <div class="section-header fade-up">
-    <span class="section-tag">What I'm working toward</span>
-    <h2 class="section-title">Goals & Progress</h2>
-    <p class="section-desc">Ambitions I'm actively tracking — holding myself accountable, in public.</p>
-  </div>
-  <div class="goals-grid">
-
-    <div class="goal-card fade-up">
-      <p class="goal-category">Learning</p>
-      <span class="goal-status status-active">Active</span>
-      <h3 class="goal-title">Backyard Activities</h3>
-      <p class="goal-desc">Chopping down a tree and replacing that area with a neat mushroom farm.</p>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 35%"></div>
-      </div>
-      <div class="progress-label"><span>In progress</span><span>40%</span></div>
-    </div>
-
-    <div class="goal-card fade-up" style="transition-delay:0.1s">
-      <p class="goal-category">Linking essays to actual documents or maybe substack?</p>
-      <span class="goal-status status-ongoing">Ongoing</span>
-      <h3 class="goal-title">Create Documents for myself</h3>
-      <p class="goal-desc">One essay per month on topics that genuinely fascinate me.</p>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 25%"></div>
-      </div>
-      <div class="progress-label"><span>3 published</span><span>25%</span></div>
-    </div>
-
-    <div class="goal-card fade-up" style="transition-delay:0.2s">
-      <p class="goal-category">Research</p>
-      <span class="goal-status status-planning">Updating Roundabout Page</span>
-      <h3 class="goal-title">Transcribe</h3>
-      <p class="goal-desc">Expanding my roundabouts research into broader transportation policy.</p>
-      <div class="progress-bar-wrap">
-        <div class="progress-bar-fill" style="width: 10%"></div>
-      </div>
-      <div class="progress-label"><span>Just started</span><span>10%</span></div>
-    </div>
-
-  </div>
-</section>
-
+<div class="goals-grid" id="goals-grid"></div>
 
 <!------------------------------------------------------------------------------------------------------------------------->
 <!-- ESSAYS -->
@@ -248,5 +205,26 @@
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 
+<script src="js/goals.js"></script>
+<script>
+  const grid = document.getElementById('goals-grid');
+  goals.forEach((goal, i) => {
+    grid.innerHTML += `
+      <div class="goal-card fade-up" style="transition-delay:${i * 0.1}s">
+        <p class="goal-category">${goal.category}</p>
+        <span class="goal-status status-${goal.status}">${goal.statusLabel}</span>
+        <h3 class="goal-title">${goal.title}</h3>
+        <p class="goal-desc">${goal.desc}</p>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" style="width:${goal.progress}%"></div>
+        </div>
+        <div class="progress-label">
+          <span>${goal.progressLabel}</span>
+          <span>${goal.progress}%</span>
+        </div>
+      </div>`;
+  });
+</script>
+	
 </body>
 </html>
