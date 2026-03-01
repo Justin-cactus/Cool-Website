@@ -40,6 +40,8 @@
       This is my corner of the internet where I express myself.
       I write, research, and build — chasing the things that genuinely fascinate me.
       If you found this, lemme know!
+	  
+	  <b>TODO: I did not test this on mobile yet.</b>
     </p>
     <div class="hero-actions">
       <a href="#essays" class="btn-primary">Read my writing</a>
@@ -70,42 +72,9 @@
   <div class="section-header fade-up">
     <span class="section-tag">Things I've written</span>
     <h2 class="section-title">Essays & Thoughts</h2>
-    <p class="section-desc">Ideas I couldn't stop thinking about until I put them into words.</p>
+    <p class="section-desc">Imagine writing things in the age of AI... Yeah that's me I'm an Unc now</p>
   </div>
-
-  <div class="essays-list fade-up">
-
-    <div class="essay-item">
-      <span class="essay-date">Jan 2025</span>
-      <div class="essay-body">
-        <span class="essay-tag-pill">Urban Design</span>
-        <h3 class="essay-title">Why Roundabouts Are Actually Brilliant</h3>
-        <p class="essay-excerpt">An honest look at why we resist good ideas — and what roundabouts reveal about how humans interact with systems.</p>
-      </div>
-      <span class="essay-arrow">→</span>
-    </div>
-
-    <div class="essay-item">
-      <span class="essay-date">Feb 2025</span>
-      <div class="essay-body">
-        <span class="essay-tag-pill">Reflection</span>
-        <h3 class="essay-title">On Taking Your Own Ideas Seriously</h3>
-        <p class="essay-excerpt">Most people talk themselves out of their best ideas before they even start. I've been trying not to.</p>
-      </div>
-      <span class="essay-arrow">→</span>
-    </div>
-
-    <div class="essay-item">
-      <span class="essay-date">Mar 2025</span>
-      <div class="essay-body">
-        <span class="essay-tag-pill">Process</span>
-        <h3 class="essay-title">Building in Public Without an Audience</h3>
-        <p class="essay-excerpt">What happens when you share your work and almost nobody sees it. Turns out, that might be the point.</p>
-      </div>
-      <span class="essay-arrow">→</span>
-    </div>
-
-  </div>
+  <div class="essays-list" id="essays-list"></div>
 </section>
 
 
@@ -113,8 +82,8 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-header fade-up">
-    <span class="section-tag">Things I've built</span>
-    <h2 class="section-title">Project Portfolio</h2>
+    <span class="section-tag">Things I've built </span>
+    <h2 class="section-title">Project Portfolio (TODO: Script this section too)</h2>
     <p class="section-desc">I haven't done shet lol</p>
   </div>
 
@@ -200,9 +169,10 @@
 </footer>
 
 
-
 <script src="js/goals.js"></script>
+<script src="js/essays.js"></script>
 <script>
+  // Inject goals
   const grid = document.getElementById('goals-grid');
   goals.forEach((goal, i) => {
     grid.innerHTML += `
@@ -220,20 +190,31 @@
         </div>
       </div>`;
   });
-</script>
-	
-<script>
-  // Fade-in on scroll
+
+  // Inject essays
+  const list = document.getElementById('essays-list');
+  essays.forEach(essay => {
+    list.innerHTML += `
+      <a class="essay-item" href="${essay.link}">
+        <span class="essay-date">${essay.date}</span>
+        <div class="essay-body">
+          <span class="essay-tag-pill">${essay.tag}</span>
+          <h3 class="essay-title">${essay.title}</h3>
+          <p class="essay-excerpt">${essay.excerpt}</p>
+        </div>
+        <span class="essay-arrow">→</span>
+      </a>`;
+  });
+
+  // Fade-in observer — runs AFTER all cards exist
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
+      if (e.isIntersecting) e.target.classList.add('visible');
     });
   }, { threshold: 0.1 });
 
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>	
+</script>
 
 </body>
 </html>
