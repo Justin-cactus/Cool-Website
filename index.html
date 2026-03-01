@@ -54,8 +54,15 @@
 
 
 <!------------------------------------------------------------------------------------------------------------------------->
-<!-- GOALS -->
-<div class="goals-grid" id="goals-grid"></div>
+ <!-- GOALS --> 
+ <section id="goals"> 
+	<div class="section-header fade-up"> 
+		<span class="section-tag">What I'm working toward</span> 
+		<h2 class="section-title">Goals & Progress</h2> 
+		<p class="section-desc">Ambitions I'm actively tracking — holding myself accountable, in public.</p> 
+	</div> 
+	<div class="goals-grid" id="goals-grid"></div>
+</section>
 
 <!------------------------------------------------------------------------------------------------------------------------->
 <!-- ESSAYS -->
@@ -192,18 +199,7 @@
   </div>
 </footer>
 
-<script>
-  // Fade-in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
 
-  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-</script>
 
 <script src="js/goals.js"></script>
 <script>
@@ -226,5 +222,18 @@
   });
 </script>
 	
+<script>
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>	
+
 </body>
 </html>
