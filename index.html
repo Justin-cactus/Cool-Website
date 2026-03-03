@@ -86,37 +86,7 @@
     <h2 class="section-title">Project Portfolio (TODO: Script this section too)</h2>
     <p class="section-desc">I haven't done shet lol</p>
   </div>
-
-  <div class="projects-grid">
-
-    <div class="project-card fade-up">
-      <div class="project-thumb">🔵</div>
-      <div class="project-info">
-        <h3 class="project-title">Project One</h3>
-        <p class="project-desc">A brief description of what this project does and why you built it. What problem did it solve?</p>
-        <a href="https://github.com/yourusername" class="project-link" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-
-    <div class="project-card fade-up" style="transition-delay:0.1s">
-      <div class="project-thumb">🟠</div>
-      <div class="project-info">
-        <h3 class="project-title">Project Two</h3>
-        <p class="project-desc">Another project with its own story. What did you learn building this?</p>
-        <a href="https://github.com/yourusername" class="project-link" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-
-    <div class="project-card fade-up" style="transition-delay:0.2s">
-      <div class="project-thumb">🟢</div>
-      <div class="project-info">
-        <h3 class="project-title">My little Webpage?</h3>
-        <p class="project-desc">Source Code for this website.</p>
-        <a href="https://github.com/Justin-cactus/Cool-Website" class="project-link" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-
-  </div>
+  <div class="projects-grid" id="projects-grid"></div>
 </section>
 
 <!------------------------------------------------------------------------------------------------------------------------->
@@ -171,6 +141,7 @@
 
 <script src="js/goals.js"></script>
 <script src="js/essays.js"></script>
+<script src="js/projects.js"></script>
 <script>
   // Inject goals
   const grid = document.getElementById('goals-grid');
@@ -205,6 +176,21 @@
         <span class="essay-arrow">→</span>
       </a>`;
   });
+  
+  
+  // Inject projects
+const projectsGrid = document.getElementById('projects-grid');
+projects.forEach((project, i) => {
+  projectsGrid.innerHTML += `
+    <div class="project-card fade-up" style="transition-delay:${i * 0.1}s">
+      <div class="project-thumb">${project.emoji}</div>
+      <div class="project-info">
+        <h3 class="project-title">${project.title}</h3>
+        <p class="project-desc">${project.desc}</p>
+        <a href="${project.link}" class="project-link" target="_blank">View on GitHub →</a>
+      </div>
+    </div>`;
+});
 
   // Fade-in observer — runs AFTER all cards exist
   const observer = new IntersectionObserver((entries) => {
