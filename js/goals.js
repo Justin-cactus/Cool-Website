@@ -1,6 +1,6 @@
 const goals = [
   {
-    category: "Learning",
+    category: "Farming",
     status: "active",
     statusLabel: "Active",
     title: "Backyard Activities",
@@ -13,7 +13,7 @@ const goals = [
     category: "Writing",
     status: "ongoing",
     statusLabel: "Ongoing",
-    title: "Create Documents for myself",
+    title: "Link Writing to this Page",
     desc: "Guess I should make a SubStack to become a truly enlightened one.",
     progress: 5,
     progressLabel: "I made a Google Doc",
@@ -28,5 +28,15 @@ const goals = [
     progress: 10,
     progressLabel: "Just started",
 	link: "#"
+  },
+  {
+	  category: "Excercise",
+	  status: "ongoing",
+	  statusLabel: "Gotta make some SMART goals!",
+	  title: "YOU HAVE TO LOSE WEIGHT",
+	  desc: "Let's be organized about this and commit this time.",
+	  progress: 1,
+	  progressLabel: "Day 0",
+	  link: "#"
   }
 ];
