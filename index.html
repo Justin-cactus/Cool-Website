@@ -38,7 +38,7 @@
     <h1 class="hero-name">Justin <em> Arackel</em></h1>
     <p class="hero-bio">
       This is my corner of the internet where I express myself.
-      I write, research, and build — chasing the things that genuinely fascinate me.
+      I made this to be a neat little one stop shop for everything me.
       If you found this, lemme know!
 	  
 	  <b>TODO: I did not test this on mobile yet.</b>
@@ -139,9 +139,11 @@
 </footer>
 
 
+
 <script src="js/goals.js"></script>
 <script src="js/essays.js"></script>
 <script src="js/projects.js"></script>
+
 <script>
   // Inject goals
   const grid = document.getElementById('goals-grid');
@@ -176,21 +178,20 @@
         <span class="essay-arrow">→</span>
       </a>`;
   });
-  
-  
+
   // Inject projects
-const projectsGrid = document.getElementById('projects-grid');
-projects.forEach((project, i) => {
-  projectsGrid.innerHTML += `
-    <div class="project-card fade-up" style="transition-delay:${i * 0.1}s">
-      <div class="project-thumb">${project.emoji}</div>
-      <div class="project-info">
-        <h3 class="project-title">${project.title}</h3>
-        <p class="project-desc">${project.desc}</p>
-        <a href="${project.link}" class="project-link" target="_blank">View on GitHub →</a>
-      </div>
-    </div>`;
-});
+  const projectsGrid = document.getElementById('projects-grid');
+  projects.forEach((project, i) => {
+    projectsGrid.innerHTML += `
+      <div class="project-card fade-up" style="transition-delay:${i * 0.1}s">
+        <div class="project-thumb">${project.emoji}</div>
+        <div class="project-info">
+          <h3 class="project-title">${project.title}</h3>
+          <p class="project-desc">${project.desc}</p>
+          <a href="${project.link}" class="project-link" target="_blank">View on GitHub →</a>
+        </div>
+      </div>`;
+  });
 
   // Fade-in observer — runs AFTER all cards exist
   const observer = new IntersectionObserver((entries) => {
