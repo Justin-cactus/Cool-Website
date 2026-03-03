@@ -6,7 +6,8 @@ const goals = [
     title: "Backyard Activities",
     desc: "Chopping down a tree and replacing that area with a neat mushroom farm.",
     progress: 20,
-    progressLabel: "In progress"
+    progressLabel: "In progress",
+	link: "#"
   },
   {
     category: "Writing",
@@ -15,7 +16,8 @@ const goals = [
     title: "Create Documents for myself",
     desc: "Guess I should make a SubStack to become a truly enlightened one.",
     progress: 5,
-    progressLabel: "I made a Google Doc"
+    progressLabel: "I made a Google Doc",
+	link: "https://docs.google.com/document/d/1uQZpx_4vkLI1ocbrw9mvDa6GTZPsV-RoYjyVc_0hDHw/edit?usp=sharing"
   },
   {
     category: "Research",
@@ -24,6 +26,7 @@ const goals = [
     title: "Transcribe Presentation into WebPage",
     desc: "Expanding my roundabouts research into broader transportation policy.",
     progress: 10,
-    progressLabel: "Just started"
+    progressLabel: "Just started",
+	link: "#"
   }
 ];

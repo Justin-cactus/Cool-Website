@@ -60,7 +60,7 @@
  <section id="goals"> 
 	<div class="section-header fade-up"> 
 		<span class="section-tag">What I'm working toward</span> 
-		<h2 class="section-title">Goals & Progress</h2> 
+		<h2 class="section-title">Goals & Progress (TODO: Add Links to individual Files)</h2> 
 		<p class="section-desc">Ambitions I'm actively tracking — holding myself accountable, in public.</p> 
 	</div> 
 	<div class="goals-grid" id="goals-grid"></div>
@@ -71,8 +71,8 @@
 <section id="essays">
   <div class="section-header fade-up">
     <span class="section-tag">Things I've written</span>
-    <h2 class="section-title">Essays & Thoughts</h2>
-    <p class="section-desc">Imagine writing things in the age of AI... Yeah that's me I'm an Unc now</p>
+    <h2 class="section-title">Essays & Thoughts (TODO: Add Links and Publish actual written works)</h2>
+    <p class="section-desc">Imagine writing things in the age of AI... Yeah that's me (Time to post sum stuff on substack I guess?)</p>
   </div>
   <div class="essays-list" id="essays-list"></div>
 </section>
@@ -83,7 +83,7 @@
 <section id="projects">
   <div class="section-header fade-up">
     <span class="section-tag">Things I've built </span>
-    <h2 class="section-title">Project Portfolio (TODO: Script this section too)</h2>
+    <h2 class="section-title">Project Portfolio </h2>
     <p class="section-desc">I haven't done shet lol</p>
   </div>
   <div class="projects-grid" id="projects-grid"></div>
@@ -95,21 +95,20 @@
   <div class="roundabout-content">
     <div>
       <div class="section-header fade-up">
-        <span class="section-tag">Featured Research</span>
-        <h2 class="section-title">The Roundabout Project</h2>
+        <span class="section-tag">My Wee Lil Research Project</span>
+        <h2 class="section-title">All Around The Roundabout </h2>
         <p class="section-desc">
-          A deep dive into one of the most misunderstood pieces of infrastructure — 
-          why roundabouts work, why we resist them, and what they say about how we design for humans.
+          A deep dive into Roundabouts. That's correct, the traffic Pattern.
         </p>
       </div>
       <div class="roundabout-facts fade-up">
         <div class="ra-fact">
           <div class="ra-fact-num">40%</div>
-          <div class="ra-fact-label">Reduction in injury crashes compared to traditional intersections</div>
+          <div class="ra-fact-label">Random Facts from Presentation</div>
         </div>
         <div class="ra-fact">
           <div class="ra-fact-num">90%</div>
-          <div class="ra-fact-label">Reduction in fatal crashes — the number that made me a believer</div>
+          <div class="ra-fact-label">Another Random Fact from Presentation</div>
         </div>
       </div>
       <div class="fade-up" style="margin-top:2rem">
@@ -152,15 +151,20 @@
       <div class="goal-card fade-up" style="transition-delay:${i * 0.1}s">
         <p class="goal-category">${goal.category}</p>
         <span class="goal-status status-${goal.status}">${goal.statusLabel}</span>
-        <h3 class="goal-title">${goal.title}</h3>
+        
+		<h3 class="goal-title">${goal.title}</h3>
         <p class="goal-desc">${goal.desc}</p>
+		
         <div class="progress-bar-wrap">
           <div class="progress-bar-fill" style="width:${goal.progress}%"></div>
         </div>
+		
         <div class="progress-label">
           <span>${goal.progressLabel}</span>
           <span>${goal.progress}%</span>
         </div>
+		
+		<a href="${goals.link}" class="goals-link" target="_blank">View Here: → </a>
       </div>`;
   });
 
