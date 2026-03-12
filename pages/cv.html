@@ -1,1 +1,399 @@
 <!-- TODO: Convert Resume to Web Page -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Your Name</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <style>
+    /* ── PAGE ── */
+    .resume-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+    }
+
+    /* ── HEADER ── */
+    .cv-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      padding-bottom: 2.5rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 3.5rem;
+      gap: 2rem;
+    }
+
+    .cv-name {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+
+    .cv-name em {
+      font-style: italic;
+      color: var(--rust);
+    }
+
+    .cv-tagline {
+      font-size: 1rem;
+      color: var(--brown);
+      margin-top: 0.5rem;
+      font-weight: 300;
+    }
+
+    .cv-contact {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .cv-contact a,
+    .cv-contact span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .cv-contact a:hover { color: var(--rust); }
+
+    /* ── SECTIONS ── */
+    .cv-section {
+      margin-bottom: 3rem;
+    }
+
+    .cv-section-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 500;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── ENTRIES ── */
+    .cv-entry {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.5rem 2rem;
+      margin-bottom: 1.75rem;
+      align-items: start;
+    }
+
+    .cv-entry:last-child { margin-bottom: 0; }
+
+    .cv-entry-left {}
+
+    .cv-entry-title {
+      font-family: 'Lora', serif;
+      font-size: 1.05rem;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .cv-entry-subtitle {
+      font-size: 0.875rem;
+      color: var(--brown);
+      margin-top: 0.2rem;
+      font-weight: 400;
+    }
+
+    .cv-entry-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-top: 0.5rem;
+      max-width: 560px;
+    }
+
+    .cv-entry-desc ul {
+      padding-left: 1.1rem;
+      margin-top: 0.35rem;
+    }
+
+    .cv-entry-desc li {
+      margin-bottom: 0.25rem;
+    }
+
+    .cv-entry-right {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .cv-date {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    .cv-location {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-top: 0.15rem;
+    }
+
+    /* ── SKILLS ── */
+    .cv-skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .cv-skill-group {}
+
+    .cv-skill-group-title {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--brown);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+    }
+
+    .cv-skill-list {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* ── TAGS (for skills/interests inline) ── */
+    .cv-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .cv-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--brown);
+      background: var(--cream);
+    }
+
+    /* ── PRINT ── */
+    .print-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      padding: 0.7rem 1.4rem;
+      background: var(--rust);
+      color: white;
+      border: none;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 20px rgba(192,98,47,0.3);
+    }
+
+    .print-btn:hover { background: #a8541f; transform: translateY(-2px); }
+
+    @media print {
+      nav, .print-btn { display: none; }
+      .resume-page { padding: 1rem; }
+      body { background: white; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .cv-header { grid-template-columns: 1fr; }
+      .cv-contact { text-align: left; }
+      .cv-entry { grid-template-columns: 1fr; }
+      .cv-entry-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">Your Name</a>
+  <ul class="nav-links">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#goals">Goals</a></li>
+    <li><a href="index.html#essays">Essays</a></li>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#roundabouts">Roundabouts</a></li>
+  </ul>
+</nav>
+
+<div class="resume-page">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div>
+      <h1 class="cv-name">Your <em>Name</em></h1>
+      <p class="cv-tagline">Your title or one-line description of yourself</p>
+    </div>
+    <div class="cv-contact">
+      <a href="mailto:you@email.com">you@email.com</a>
+      <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a>
+      <a href="https://yoursite.github.io" target="_blank">yoursite.github.io</a>
+      <span>City, State</span>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="cv-section">
+    <h2 class="cv-section-title">Summary</h2>
+    <p class="cv-entry-desc">
+      A few sentences about who you are, what you do, and what makes you distinct.
+      Write this in your own voice — it should sound like the bio on your homepage,
+      not a generic professional summary.
+    </p>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="cv-section">
+    <h2 class="cv-section-title">Experience</h2>
+
+    <div class="cv-entry">
+      <div class="cv-entry-left">
+        <h3 class="cv-entry-title">Job Title</h3>
+        <p class="cv-entry-subtitle">Company Name</p>
+        <div class="cv-entry-desc">
+          <ul>
+            <li>What you did and the impact it had.</li>
+            <li>Another accomplishment, ideally with a number or outcome.</li>
+            <li>A third thing that shows range or depth.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cv-entry-right">
+        <p class="cv-date">Month Year – Month Year</p>
+        <p class="cv-location">City, State</p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-left">
+        <h3 class="cv-entry-title">Job Title</h3>
+        <p class="cv-entry-subtitle">Company Name</p>
+        <div class="cv-entry-desc">
+          <ul>
+            <li>What you did and the impact it had.</li>
+            <li>Another accomplishment, ideally with a number or outcome.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="cv-entry-right">
+        <p class="cv-date">Month Year – Month Year</p>
+        <p class="cv-location">City, State</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="cv-section">
+    <h2 class="cv-section-title">Education</h2>
+
+    <div class="cv-entry">
+      <div class="cv-entry-left">
+        <h3 class="cv-entry-title">Degree, Field of Study</h3>
+        <p class="cv-entry-subtitle">University Name</p>
+        <p class="cv-entry-desc">Relevant coursework, honors, clubs, or anything worth noting.</p>
+      </div>
+      <div class="cv-entry-right">
+        <p class="cv-date">Year – Year</p>
+        <p class="cv-location">City, State</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="cv-section">
+    <h2 class="cv-section-title">Projects</h2>
+
+    <div class="cv-entry">
+      <div class="cv-entry-left">
+        <h3 class="cv-entry-title">The Roundabout Project</h3>
+        <p class="cv-entry-subtitle">Independent Research</p>
+        <p class="cv-entry-desc">
+          Original research into roundabout safety, traffic efficiency, and public resistance
+          to infrastructure change. Published as an interactive web presentation.
+        </p>
+      </div>
+      <div class="cv-entry-right">
+        <p class="cv-date">Year</p>
+      </div>
+    </div>
+
+    <div class="cv-entry">
+      <div class="cv-entry-left">
+        <h3 class="cv-entry-title">Personal Website</h3>
+        <p class="cv-entry-subtitle">Self-directed</p>
+        <p class="cv-entry-desc">
+          Designed and built a personal site from scratch — modular HTML/CSS/JS,
+          deployed on GitHub Pages.
+        </p>
+      </div>
+      <div class="cv-entry-right">
+        <p class="cv-date">2025</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SKILLS -->
+  <div class="cv-section">
+    <h2 class="cv-section-title">Skills</h2>
+    <div class="cv-skills-grid">
+
+      <div class="cv-skill-group">
+        <p class="cv-skill-group-title">Technical</p>
+        <p class="cv-skill-list">Skill One<br>Skill Two<br>Skill Three</p>
+      </div>
+
+      <div class="cv-skill-group">
+        <p class="cv-skill-group-title">Tools</p>
+        <p class="cv-skill-list">Tool One<br>Tool Two<br>Tool Three</p>
+      </div>
+
+      <div class="cv-skill-group">
+        <p class="cv-skill-group-title">Other</p>
+        <p class="cv-skill-list">Skill One<br>Skill Two<br>Skill Three</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INTERESTS -->
+  <div class="cv-section">
+    <h2 class="cv-section-title">Interests</h2>
+    <div class="cv-tags">
+      <span class="cv-tag">Urban Infrastructure</span>
+      <span class="cv-tag">Roundabouts</span>
+      <span class="cv-tag">Writing</span>
+      <span class="cv-tag">Mushroom Farming</span>
+      <span class="cv-tag">Research</span>
+      <span class="cv-tag">Your Interest Here</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- PRINT BUTTON -->
+<button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+
+</body>
+</html>
