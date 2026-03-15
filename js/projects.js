@@ -7,9 +7,9 @@ const projects = [
   },
   {
     emoji: "🟠",
-    title: "Project Two",
-    desc: "Placeholder 2?",
-    link: "https://github.com/yourusername"
+    title: "League Of Legends - Playtime Enforcer",
+    desc: "If I don't have a system to regulate my playtime; I will entertain myself to death.",
+    link: "https://github.com/Justin-cactus/League-Script-Self-Control-"
   },
   {
     emoji: "🟢",
