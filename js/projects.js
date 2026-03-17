@@ -1,9 +1,9 @@
 const projects = [
   {
     emoji: "🔵",
-    title: "Project One",
-    desc: "Placeholder?",
-    link: "https://github.com/yourusername"
+    title: "Cam-Scanner Functional Clone",
+    desc: "Document scanning application in Python using OpenCV for image processing( replicating core Cam Scanner functionality including perspective correction and document boundary detection ).",
+    link: "https://github.com/Justin-cactus/Cam-Scanner-Functional-Clone"
   },
   {
     emoji: "🟠",
