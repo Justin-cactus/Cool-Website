@@ -1,0 +1,128 @@
+<!-- TODO: Convert parts to js -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume — Justin Arackel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/nav.css">
+  <link rel="stylesheet" href="../css/cv.css">
+  
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="cv.html" class="nav-logo">Resumé (WIP)</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#Home">Landing Page</a></li>
+  </ul>
+</nav>
+
+<div class="resume-page">
+
+  <!-- HEADER -->
+  <div class="cv-header">
+    <div>
+      <h1 class="cv-name">Justin <em>Arackel</em></h1>
+      <p class="cv-tagline">I guess I'm just a vibe-coder now</p>
+    </div>
+    <div class="cv-contact">
+      <a href="mailto:justin.arackel@gmail.com">justin.arackel@email.com</a>
+      <a href="https://github.com/Justin-cactus" target="_blank">github.com/Justin-cactus</a>
+      <a href="https://justin-cactus.github.io/Cool-Website/" target="_blank">justin-cactus.github.io/Cool-Website/</a>
+      <span>Austin, Texas</span>
+    </div>
+  </div>
+
+  <!-- SUMMARY -->
+
+  <!-- EXPERIENCE -->
+	<div class="cv-section">
+		<div class="cv-entry">
+			<div class="cv-entry-left">
+				<h3 class="cv-entry-title">Software & Embedded Systems Engineering Intern</h3>
+				<p class="cv-entry-subsection-title"> Quick Summary: ~ TODO: Make more readable </p>
+				<p class="cv-entry-desc">
+					BEI Precision Systems & Space designs high-reliability encoders for aerospace and defense 
+					applications. Embedded within a small engineering team, I contributed across the full FPGA 
+					development and validation lifecycle for flight-grade encoder hardware — working mostly in 
+					software and firmware while interfacing regularly with lab equipment to verify real hardware behavior.
+				</p>
+	
+				<p class="cv-entry-subsection-title">FPGA Verification & Testbench Development</p>
+				<p class="cv-entry-desc">
+				Designed and built a pre-silicon FPGA verification environment from scratch, establishing 
+				the testbench format and structure the team adopted and carried forward. Wrote test cases 
+				in Verilog and worked within Libero and Vivado EDA toolchains to simulate and validate 
+				design behavior before committing to silicon.
+				</p>
+	
+				<p class="cv-entry-subsection-title">EDAC System Testing & Validation</p>
+				<p class="cv-entry-desc">
+				Tested, calibrated, debugged, and validated the Error Detection and Correction (EDAC) 
+				system of the encoder. Work was largely self-directed, using oscilloscopes and logic 
+				analyzers to verify signal integrity and system behavior against spec on hardware destined 
+				for aerospace environments.
+				</p>
+	
+				<p class="cv-entry-subsection-title">Documentation & Design Validation</p>
+				<p class="cv-entry-desc">
+				Identified and filled significant gaps in existing Design Validation coverage and 
+				substantially expanded module-level documentation for the FPGA, improving traceability 
+				across the team.
+				</p>
+	
+				<p class="cv-entry-subsection-title">Processor & IP Research</p>
+				<p class="cv-entry-desc">
+				Investigated potential improvements to the current processor architecture and evaluated 
+				changes to Actel's SRAM IP using GNU Octave for analysis alongside C/C++ tooling.
+				</p>
+			</div>
+			<div class="cv-entry-right">
+				<p class="cv-company"><a href="https://www.quanticbei.com/">BEI Precision Systems & Space</a><p>
+				<p class="cv-location">Maumelle, Arkansas</p>
+				<p class="cv-date">May 2021 – August 2021</p>
+				<p> TODO: Fix Vertical Alignment here</p>
+			</div>
+		</div>
+	</div>
+
+  <!-- EDUCATION -->
+  <!-- PROJECTS -->
+  <!-- SKILLS -->
+  <div class="cv-section">
+    <h2 class="cv-section-title">Skills</h2>
+    <div class="cv-skills-grid">
+
+      <div class="cv-skill-group">
+        <p class="cv-skill-group-title">Coding Languages</p>
+        <p class="cv-skill-list">Compiler-based code(C, C++)<br>Script-based Code(Perl, Python)<br>Forth<br></p>
+      </div>
+
+      <div class="cv-skill-group">
+        <p class="cv-skill-group-title">Software</p>
+        <p class="cv-skill-list">RTL Tools(Vivado, ModelSim)<br>Electronics Simulation Environment(Cadence, MultiSim, TINA)<br>PCB Layout Software(Altium, Eagle)</p>
+      </div>
+
+      <div class="cv-skill-group">
+        <p class="cv-skill-group-title">Other</p>
+        <p class="cv-skill-list">Agile Workflow<br>Decent Prompt Engineer<br>Pretty Chill Guy</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- INTERESTS -->
+
+
+</div>
+
+<!-- PRINT BUTTON -->
+<a class="print-btn" href="../assets/resume.pdf" target="_blank">Download PDF Copy</a>
+
+</body>
+</html>

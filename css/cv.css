@@ -90,6 +90,53 @@
   align-items: start;
 }
 
+.btn-primary {
+  padding: 2rem 1rem;
+  height: 100%;
+  width: 260px;
+  background: var(--rust);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 10px;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.02em;
+  justify-content: space-between;
+
+}
+
+.btn-primary:hover { background: #a8541f; transform: translateY(-1px); }
+
+.btn-primary small {
+  font-size: 0.75rem;
+  font-weight: 300;
+  opacity: 0.8;
+}
+
+.btn-cta-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0.9;
+}
+
+.btn-ghost {
+  padding: 0.8rem 1.8rem;
+  border: 1.5px solid var(--border);
+  color: var(--brown);
+  text-decoration: none;
+  font-size: 0.875rem;
+  border-radius: 100px;
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.btn-ghost:hover { border-color: var(--rust); color: var(--rust); }
+
 .cv-entry:last-child { margin-bottom: 0; }
 
 .cv-entry-left {}
@@ -113,7 +160,7 @@
   color: var(--muted);
   line-height: 1.7;
   margin-top: 0.5rem;
-  max-width: 560px;
+  width: 100%;
 }
 
 .cv-entry-desc ul {
@@ -197,7 +244,7 @@
   bottom: 2rem;
   right: 2rem;
   padding: 0.7rem 1.4rem;
-  background: var(--rust);
+  background: var(--brown);
   color: white;
   border: none;
   border-radius: 100px;
