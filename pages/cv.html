@@ -103,29 +103,36 @@
 	</div>
 	
   </div>
+  
   <div class="cv-section">
-	<h2 class="cv-section-title">Other Jobs: </h2>
-	<div class="cv-entry">
+	<h2 class="cv-section-title">Other Jobs</h2>
+
+	<div class="cv-collapsible" id="other-jobs">
+		<div class="cv-entry">
 		<h3 class="cv-entry-title">Hot Line Cook</h3>
 		<div class="cv-entry-left">
-		
 			<p class="cv-entry-desc">
-				<br> Freddy's Custard & Steakburgers
-				<br> May 2019 - September 2019
-				<br> Sugar Land, Texas
-			</p><br>
+			Freddy's Custard & Steakburgers<br>
+			May 2019 – September 2019<br>
+			Sugar Land, Texas
+			</p>
 		</div>
 	
 		<h3 class="cv-entry-title">Student Technician</h3>
 		<div class="cv-entry-left">
 			<p class="cv-entry-desc">
-				<br>HelpDesk Central ( TAMU )
-				<br>November 2019 - September 2021
-				<br>College Station, Texas
+			HelpDesk Central (TAMU)<br>
+			November 2019 – September 2021<br>
+			College Station, Texas
 			</p>
 		</div>
 	</div>
   </div>
+
+  <button class="cv-toggle-btn" id="other-jobs-btn" onclick="toggleSection()">
+    — see more —
+  </button>
+</div>
 
   <!-- EDUCATION -->
   <div class="cv-section">
@@ -275,6 +282,15 @@
 
 <!-- PRINT BUTTON -->
 <a class="print-btn" href="../assets/resume.pdf" target="_blank">Download PDF Copy</a>
+
+<script>
+  function toggleSection() {
+    const section = document.getElementById('other-jobs');
+    const btn = document.getElementById('other-jobs-btn');
+    section.classList.toggle('open');
+    btn.textContent = section.classList.contains('open') ? '— see less —' : '— see more —';
+  }
+</script>
 
 </body>
 </html>

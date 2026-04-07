@@ -90,6 +90,36 @@
   align-items: start;
 }
 
+.cv-collapsible {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.4s ease;
+}
+
+.cv-collapsible.open {
+  max-height: 200px;
+}
+
+.cv-toggle-btn {
+  display: block;
+  margin: 0.75rem auto 0;
+  background: none;
+  border: 1.5px solid var(--border);
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  padding: 0.4rem 1.2rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.cv-toggle-btn:hover {
+  border-color: var(--rust);
+  color: var(--rust);
+}
+
 .btn-primary {
   padding: 2rem 1rem;
   height: 100%;
@@ -109,7 +139,7 @@
 
 }
 
-.btn-primary:hover { background: #a8541f; transform: translateY(-1px); }
+.btn-primary:hover { background: var(--dark-maroon); transform: translateY(-1px); }
 
 .btn-primary small {
   font-size: 0.75rem;
@@ -257,7 +287,7 @@
   box-shadow: 0 4px 20px rgba(192,98,47,0.3);
 }
 
-.print-btn:hover { background: #a8541f; transform: translateY(-2px); }
+.print-btn:hover { background: var(--dark-maroon); transform: translateY(-2px); }
 
 @media print {
   nav, .print-btn { display: none; }
