@@ -1,5 +1,5 @@
     /* ── GOALS ── */
-    #goals { background: var(--warm-white); }
+    #goals { background: var(--porcelain); }
 
     .goals-grid {
       display: grid;
@@ -41,7 +41,7 @@
 
     .goal-desc {
       font-size: 0.875rem;
-      color: var(--muted);
+      color: var(--dusty);
       line-height: 1.65;
       margin-bottom: 1.25rem;
     }
@@ -56,13 +56,13 @@
     .progress-bar-fill {
       height: 100%;
       border-radius: 100px;
-      background: linear-gradient(90deg, var(--rust), #e8884d);
+      background: linear-gradient(90deg, var(--maroon), #e8884d);
       transition: width 1s ease;
     }
 
     .progress-label {
       font-size: 0.75rem;
-      color: var(--muted);
+      color: var(--dusty);
       margin-top: 0.5rem;
       display: flex;
       justify-content: space-between;

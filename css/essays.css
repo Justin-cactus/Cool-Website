@@ -1,5 +1,5 @@
     /* ── ESSAYS ── */
-    #essays { background: var(--cream); }
+    #essays { background: var(--parchment); }
 
     .essays-list {
       display: flex;
@@ -21,12 +21,12 @@
       cursor: pointer;
     }
 
-    .essay-item:hover .essay-title { color: var(--rust); }
-    .essay-item:hover .essay-arrow { transform: translateX(4px); color: var(--rust); }
+    .essay-item:hover .essay-title { color: var(--maroon); }
+    .essay-item:hover .essay-arrow { transform: translateX(4px); color: var(--maroon); }
 
     .essay-date {
       font-size: 0.8rem;
-      color: var(--muted);
+      color: var(--dusty);
       padding-top: 0.2rem;
       font-weight: 300;
     }
@@ -57,7 +57,7 @@
 
     .essay-excerpt {
       font-size: 0.875rem;
-      color: var(--muted);
+      color: var(--dusty);
       line-height: 1.65;
     }
 

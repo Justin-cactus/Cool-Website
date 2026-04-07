@@ -27,7 +27,7 @@
 
 .cv-name em {
   font-style: italic;
-  color: var(--rust);
+  color: var(--maroon);
 }
 
 .cv-tagline {
@@ -47,13 +47,13 @@
 .cv-contact a,
 .cv-contact span {
   font-size: 0.8rem;
-  color: var(--muted);
+  color: var(--dusty);
   text-decoration: none;
   display: block;
   transition: color 0.2s;
 }
 
-.cv-contact a:hover { color: var(--rust); }
+.cv-contact a:hover { color: var(--maroon); }
 
 /* ── SECTIONS ── */
 .cv-section {
@@ -64,7 +64,7 @@
   font-size: 1rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--rust);
+  color: var(--maroon);
   font-weight: 500;
   margin-bottom: 1.25rem;
   padding-bottom: 0.5rem;
@@ -76,7 +76,7 @@
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--rust);
+  color: var(--maroon);
   margin-top: 1.1rem;
   margin-bottom: 0.25rem;
 }
@@ -94,7 +94,7 @@
   padding: 2rem 1rem;
   height: 100%;
   width: 260px;
-  background: var(--rust);
+  background: var(--maroon);
   color: white;
   display: flex;
   flex-direction: column;
@@ -135,7 +135,7 @@
   letter-spacing: 0.02em;
 }
 
-.btn-ghost:hover { border-color: var(--rust); color: var(--rust); }
+.btn-ghost:hover { border-color: var(--maroon); color: var(--maroon); }
 
 .cv-entry:last-child { margin-bottom: 0; }
 
@@ -157,7 +157,7 @@
 
 .cv-entry-desc {
   font-size: 0.875rem;
-  color: var(--muted);
+  color: var(--dusty);
   line-height: 1.7;
   margin-top: 0.5rem;
   width: 100%;
@@ -179,21 +179,21 @@
 
 .cv-date {
   font-size: 0.78rem;
-  color: var(--muted);
+  color: var(--dusty);
   font-weight: 300;
   margin-top: 1rem;
 }
 
 .cv-location {
   font-size: 0.78rem;
-  color: var(--muted);
+  color: var(--dusty);
   font-weight: 300;
   margin-top: 0.5rem;
 }
 
 .cv-company {
 	font-size: 0.78rem;
-	color: var(--muted);
+	color: var(--dusty);
 	font-weight: 300;
 }
 
@@ -216,7 +216,7 @@
 
 .cv-skill-list {
   font-size: 0.83rem;
-  color: var(--muted);
+  color: var(--dusty);
   line-height: 1.8;
 }
 
@@ -235,7 +235,7 @@
   border: 1px solid var(--border);
   border-radius: 100px;
   color: var(--brown);
-  background: var(--cream);
+  background: var(--parchment);
 }
 
 /* ── PRINT ── */

@@ -11,7 +11,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--rust);
+      color: var(--maroon);
       font-weight: 500;
       display: block;
       margin-bottom: 0.6rem;
@@ -28,7 +28,7 @@
     .section-desc {
       margin-top: 0.75rem;
       font-size: 1rem;
-      color: var(--muted);
+      color: var(--dusty);
       max-width: 500px;
       line-height: 1.7;
     }

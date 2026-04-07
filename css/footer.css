@@ -15,7 +15,7 @@
       transition: color 0.2s;
     }
 
-    footer a:hover { color: var(--soft-rust); }
+    footer a:hover { color: var(--cream); }
 
     .footer-links { display: flex; gap: 2rem; }
 

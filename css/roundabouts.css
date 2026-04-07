@@ -1,7 +1,7 @@
     /* ── ROUNDABOUTS ── */
     #roundabouts {
       background: linear-gradient(135deg, #2a2118 0%, #3d2e1e 100%);
-      color: var(--cream);
+      color: var(--parchment);
       position: relative;
       overflow: hidden;
     }
@@ -30,7 +30,7 @@
 
     #roundabouts .section-tag { color: #e8884d; }
 
-    #roundabouts .section-title { color: var(--cream); }
+    #roundabouts .section-title { color: var(--parchment); }
 
     #roundabouts .section-desc { color: rgba(249,244,238,0.6); }
 
@@ -62,7 +62,7 @@
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
       width: 60px; height: 60px;
-      background: var(--rust);
+      background: var(--maroon);
       border-radius: 50%;
     }
 
@@ -99,7 +99,7 @@
     .ra-fact-num {
       font-family: 'Lora', serif;
       font-size: 1.8rem;
-      color: var(--rust);
+      color: var(--maroon);
       line-height: 1;
       margin-bottom: 0.25rem;
     }
@@ -115,7 +115,7 @@
       display: inline-block;
       padding: 0.8rem 1.8rem;
       border: 1.5px solid rgba(192,98,47,0.6);
-      color: var(--soft-rust);
+      color: var(--cream);
       text-decoration: none;
       font-size: 0.875rem;
       border-radius: 100px;
@@ -124,5 +124,5 @@
 
     .ra-cta:hover {
       background: rgba(192,98,47,0.15);
-      border-color: var(--rust);
+      border-color: var(--maroon);
     }

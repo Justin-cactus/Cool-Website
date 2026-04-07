@@ -1,14 +1,15 @@
 
 	:root {
-	--cream: #f9f4ee;
-	--warm-white: #fdfaf6;
-	--ink: #2a2118;
-	--brown: #7a5c3f;
-	--rust: #c0622f;
-	--soft-rust: #e8d5c4;
-	--sage: #8a9e82;
-	--muted: #9e8e7e;
+	--porcelain: #fdfaf6;
+	--parchment: #F9F4EE;
 	--border: #e2d5c8;
+	--cream: #e8d5c4;
+	--brown: #7a5c3f;
+	--ink: #2a2118;
+	--maroon: #762940;
+	--dusty: #9e8e7e;
+	--sage: #8a9e82;
+	
 	}
 	
 	* {
@@ -19,7 +20,7 @@
 	
 	body {
 	font-family: 'DM Sans', sans-serif;
-	background: var(--cream);
+	background: var(--parchment);
 	color: var(--ink);
 	overflow-x: hidden;
 	}
@@ -31,7 +32,7 @@
 
     body {
       font-family: 'DM Sans', sans-serif;
-      background: var(--warm-white);
+      background: var(--porcelain);
       color: var(--ink);
       overflow-x: hidden;
     }
