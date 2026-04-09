@@ -221,6 +221,13 @@
   margin-top: 0.5rem;
 }
 
+.cv-gpa {
+  font-size: 0.8rem;
+  color: var(--dusty);
+  font-weight: 300;
+  margin-top: 0.5rem;
+}
+
 .cv-company {
 	font-size: 0.78rem;
 	color: var(--dusty);
