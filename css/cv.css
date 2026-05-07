@@ -93,11 +93,7 @@
 .cv-collapsible {
   overflow: hidden;
   max-height: 0;
-  transition: max-height 0.4s ease;
-}
-
-.cv-collapsible.open {
-  max-height: 200px;
+  transition: max-height 0.8s ease;
 }
 
 .cv-toggle-btn {
@@ -237,14 +233,20 @@
 /* ── SKILLS ── */
 .cv-skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   gap: 1rem;
+  justify-items: center;
+  text-align: left;
 }
 
-.cv-skill-group {}
+.cv-skill-group {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
 
 .cv-skill-group-title {
-  font-size: 0.78rem;
+  font-size: 1.08rem;
   font-weight: 500;
   color: var(--brown);
   margin-bottom: 0.4rem;
@@ -255,6 +257,7 @@
   font-size: 0.83rem;
   color: var(--dusty);
   line-height: 1.8;
+  text-align: left;
 }
 
 /* ── TAGS (for skills/interests inline) ── */
@@ -281,7 +284,7 @@
   bottom: 2rem;
   right: 2rem;
   padding: 0.7rem 1.4rem;
-  background: var(--brown);
+  background: var(--maroon);
   color: white;
   border: none;
   border-radius: 100px;

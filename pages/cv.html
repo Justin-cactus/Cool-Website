@@ -42,8 +42,14 @@
   <div class="cv-section">
     <h2 class="cv-section-title">Summary</h2>
     <p class="cv-entry-desc">
-		Get Design advice from Professor Remsburg, Nathan, Mom, Dad, Friends and fill in with a general summary of me.
-    </p>
+		I'm an electrical engineer with a background spanning hardware verification, embedded systems, and applied AI ~ most recently at IBM Research, 
+		where I spent nearly three years validating silicon for enterprise and mainframe systems. I simply enjoy engineering, 
+		systematic thinking & problem solving, thus, at the end of the day I just want to apply my skills to be useful to those around me, 
+		so we can all just live life with less problems. <br><br>
+		I have a habit of going deep on things that interest me whether or not anyone asked me to.
+		I'm currently pursuing a Master's in Electrical Engineering at Texas A&M, specializing in Biomedical ECE and Signal Processing. 
+		Outside of engineering, I write & research things that catch my attention, and occasionally build things that have no business working as well as they do like mushroom farms.
+	</p>
   </div>
 
   <!-- EXPERIENCE -->
@@ -129,9 +135,8 @@
 	</div>
   </div>
 
-  <button class="cv-toggle-btn" id="other-jobs-btn" onclick="toggleSection()">
-    — see more —
-  </button>
+<!--  <button class="cv-toggle-btn" id="other-jobs-btn" onclick="toggleSection()"> Click to see more... </button> -->
+  <button class="cv-toggle-btn" onclick="toggleSection('other-jobs')"> Click to see more... </button>
 </div>
 
   <!-- EDUCATION -->
@@ -170,76 +175,84 @@
   <!-- PROJECTS -->
   <div class="cv-section">
 		<h2 class="cv-section-title">Projects [TODO: make expandable] </h2>
-	
-		<div class="cv-entry">
-			<div class="cv-entry-left">
-				<h3 class="cv-entry-title">PVC Pipe Speaker System</h3>
-				<p class="cv-entry-desc">
-					Designed and built the full electronics stack for a functional speaker system from the ground up — including a custom power supply, 
-					active crossover network, and power amplifier, all laid out on a custom PCB. The system drove a Speaker/Tweeter pair successfully and 
-					represented one of the more labor-intensive hands-on builds of the degree. The engineering worked; the enclosure just didn't photograph well.
-				</p>
+		
+		<div class="cv-collapsible" id="projects">
+			<div class="cv-entry">
+				<div class="cv-entry-left">
+					<h3 class="cv-entry-title">PVC Pipe Speaker System</h3>
+					<p class="cv-entry-desc">
+						Designed and built the full electronics stack for a functional speaker system from the ground up — including a custom power supply, 
+						active crossover network, and power amplifier, all laid out on a custom PCB. The system drove a Speaker/Tweeter pair successfully and 
+						represented one of the more labor-intensive hands-on builds of the degree. The engineering worked; the enclosure just didn't photograph well.
+					</p>
+				</div>
+				
+				<div class="cv-entry-right">
+					<p class="cv-date">2022</p>
+				</div>
 			</div>
+	
+			<div class="cv-entry">
+				<div class="cv-entry-left">
+					<h3 class="cv-entry-title">CamScanner Clone (Python / OpenCV)</h3>
+					<p class="cv-entry-desc">
+						Built a document scanning application from scratch in Python using OpenCV for image processing — replicating core CamScanner functionality 
+						including perspective correction and document boundary detection. A clean, well-structured implementation with source code available on GitHub.
+					</p>
+				</div>
 			<div class="cv-entry-right">
 				<p class="cv-date">2022</p>
 			</div>
 		</div>
-	</div>
-	
-	<div class="cv-entry">
-		<div class="cv-entry-left">
-			<h3 class="cv-entry-title">CamScanner Clone (Python / OpenCV)</h3>
-			<p class="cv-entry-desc">
-				Built a document scanning application from scratch in Python using OpenCV for image processing — replicating core CamScanner functionality 
-				including perspective correction and document boundary detection. A clean, well-structured implementation with source code available on GitHub.
-			</p>
-		</div>
-		<div class="cv-entry-right">
-			<p class="cv-date">2022</p>
-		</div>
-	</div>
     
-	<div class="cv-entry">
-		<div class="cv-entry-left">
-			<h3 class="cv-entry-title">Calorie Counting Bowl</h3>
-			<p class="cv-entry-desc">
-				Developed an embedded system that transmitted mass differentials from a smart bowl to an Android app, 
-				where users could log individual food additions by selecting calorie densities pulled from an external nutrition API. 
-				Combined hardware sensing, mobile development, and API integration in a single project.
-			</p>
+		<div class="cv-entry">
+			<div class="cv-entry-left">
+				<h3 class="cv-entry-title">Calorie Counting Bowl</h3>
+				<p class="cv-entry-desc">
+					Developed an embedded system that transmitted mass differentials from a smart bowl to an Android app, 
+					where users could log individual food additions by selecting calorie densities pulled from an external nutrition API. 
+					Combined hardware sensing, mobile development, and API integration in a single project.
+				</p>
+			</div>
+			
+			<div class="cv-entry-right">
+				<p class="cv-date">2019</p>
+			</div>
 		</div>
-		<div class="cv-entry-right">
-			<p class="cv-date">2019</p>
+	
+		<div class="cv-entry">
+			<div class="cv-entry-left">
+				<h3 class="cv-entry-title">The Roundabout Project</h3>
+				<p class="cv-entry-subtitle">Independent Research</p>
+				<p class="cv-entry-desc">
+				Original research into roundabout safety, traffic efficiency, and public resistance
+				to infrastructure change. Published as an interactive web presentation.
+				</p>
+			</div>
+			
+			<div class="cv-entry-right">
+				<p class="cv-date">2025</p>
+			</div>
+		</div>
+
+		<div class="cv-entry">
+			<div class="cv-entry-left">
+				<h3 class="cv-entry-title">Personal Website</h3>
+					<p class="cv-entry-subtitle">Self-directed</p>
+					<p class="cv-entry-desc">
+					Designed and built a personal site from scratch — modular HTML/CSS/JS,
+					deployed on GitHub Pages.
+					</p>
+			</div>
+			
+			<div class="cv-entry-right">
+				<p class="cv-date">2025</p>
+			</div>
 		</div>
 	</div>
 	
-	<div class="cv-entry">
-      <div class="cv-entry-left">
-        <h3 class="cv-entry-title">The Roundabout Project</h3>
-        <p class="cv-entry-subtitle">Independent Research</p>
-        <p class="cv-entry-desc">
-          Original research into roundabout safety, traffic efficiency, and public resistance
-          to infrastructure change. Published as an interactive web presentation.
-        </p>
-      </div>
-      <div class="cv-entry-right">
-        <p class="cv-date">2025</p>
-      </div>
-    </div>
-
-    <div class="cv-entry">
-      <div class="cv-entry-left">
-        <h3 class="cv-entry-title">Personal Website</h3>
-        <p class="cv-entry-subtitle">Self-directed</p>
-        <p class="cv-entry-desc">
-          Designed and built a personal site from scratch — modular HTML/CSS/JS,
-          deployed on GitHub Pages.
-        </p>
-      </div>
-      <div class="cv-entry-right">
-        <p class="cv-date">2025</p>
-      </div>
-    </div>
+	<!-- <button class="cv-toggle-btn" id="other-jobs-btn" onclick="toggleSection()"> Click to see more... </button> -->
+	<button class="cv-toggle-btn" id="projects-btn" onclick="toggleSection('projects')"> Click to see more... </button>
 
   </div>
 
@@ -247,22 +260,51 @@
   <div class="cv-section">
     <h2 class="cv-section-title">Skills</h2>
     <div class="cv-skills-grid">
+		<div class="cv-skill-group">
+			<p class="cv-skill-group-title">Languages</p>
+			<p class="cv-skill-list">
+				- C / C++<br>
+				- Python<br>
+				- Perl<br>
+				- VHDL & Verilog<br>
+				- BASH / TCL<br>
+				- Forth
+			</p>
+		</div>
 
-      <div class="cv-skill-group">
-        <p class="cv-skill-group-title">Coding Languages</p>
-        <p class="cv-skill-list">Compiler-based code(C, C++)<br>Script-based Code(Perl, Python)<br>Forth<br></p>
-      </div>
-
-      <div class="cv-skill-group">
-        <p class="cv-skill-group-title">Software</p>
-        <p class="cv-skill-list">RTL Tools(Vivado, ModelSim)<br>Electronics Simulation Environment(Cadence, MultiSim, TINA)<br>PCB Layout Software(Altium, Eagle)</p>
-      </div>
-
-      <div class="cv-skill-group">
-        <p class="cv-skill-group-title">Other</p>
-        <p class="cv-skill-list">Agile Workflow<br>Decent Prompt Engineer<br>Pretty Chill Guy</p>
-      </div>
-
+		<div class="cv-skill-group">
+			<p class="cv-skill-group-title">Software & Tools</p>
+			<p class="cv-skill-list">
+				- Vivado / Libero / ModelSim<br>
+				- Cadence / Synopsys<br>
+				- MultiSim / TINA<br>
+				- Altium / Eagle<br>
+				- GNU Octave<br>
+				- CMake
+			</p>
+		</div>
+		
+		<div class="cv-skill-group">
+			<p class="cv-skill-group-title">Hardware & Lab</p>
+			<p class="cv-skill-list">
+				- PCB Design & Layout<br>
+				- Oscilloscopes & Logic Analyzers<br>
+				- Signal Integrity Analysis<br>
+				- FPGA Bring-up & Debug<br>
+				- Timing Analysis
+			</p>		
+		</div>
+		
+		<div class="cv-skill-group">
+			<p class="cv-skill-group-title">Other</p>
+			<p class="cv-skill-list">
+				- Agile Workflow<br>
+				- Technical Documentation<br>
+				- Prompt Engineering & LLM Evaluation<br>
+				- Independent Research<br>
+				- Self-directed Learning
+			</p>
+		</div>
     </div>
   </div>
 
@@ -271,11 +313,10 @@
     <h2 class="cv-section-title">Interests</h2>
     <div class="cv-tags">
       <span class="cv-tag">Urban Infrastructure</span>
-      <span class="cv-tag">Roundabouts</span>
-      <span class="cv-tag">Writing</span>
-      <span class="cv-tag">Mushroom Farming</span>
-      <span class="cv-tag">Research</span>
-      <span class="cv-tag">Your Interest Here</span>
+      <span class="cv-tag">Natural Language Processing</span>
+      <span class="cv-tag">Bio-ECE</span>
+      <span class="cv-tag">Human-Computer Interaction</span>
+      <span class="cv-tag">Photonics</span>
     </div>
   </div>
 
@@ -284,12 +325,21 @@
 <!-- PRINT BUTTON -->
 <a class="print-btn" href="../assets/resume.pdf" target="_blank">Download PDF Copy</a>
 
+
 <script>
-  function toggleSection() {
-    const section = document.getElementById('other-jobs');
-    const btn = document.getElementById('other-jobs-btn');
-    section.classList.toggle('open');
-    btn.textContent = section.classList.contains('open') ? ' Click to see less... ' : ' Click to see more... ';
+  function toggleSection(id) {
+    const section = document.getElementById(id);
+    const btn = section.nextElementSibling;
+    
+    if (section.classList.contains('open')) {
+      section.style.maxHeight = null;
+      section.classList.remove('open');
+      btn.textContent = ' Click to see more... ';
+    } else {
+      section.style.maxHeight = section.scrollHeight + 'px';
+      section.classList.add('open');
+      btn.textContent = ' Click to see less... ';
+    }
   }
 </script>
 
